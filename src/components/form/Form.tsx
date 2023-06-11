@@ -38,6 +38,7 @@ export const FormDoctors: React.FC<Props> = ({
     validationSchema: validationShema,
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      formik.resetForm();
     },
   });
 
