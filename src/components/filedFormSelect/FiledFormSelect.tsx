@@ -1,4 +1,3 @@
-import { Field } from "formik";
 import { city, doctor, gender } from "../../types/types";
 
 type Props = {
