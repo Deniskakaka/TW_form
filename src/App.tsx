@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import {
+  getCityList,
+  getDoctorsSpecialtyList,
+  getListDoctors,
+} from "./api/api";
+import { FormDoctors } from "./components/form/Form";
+import { city, doctor, gender, specialty } from "./types/types";
 
 function App() {
+  const [listCites, setListCites] = useState<city[]>([]);
+  const [listSpecialty, setListSpeciality] = useState<specialty[]>([]);
+  const [listDoctors, setListDoctors] = useState<doctor[]>([]);
+  const [sex] = useState<gender[]>([
+    { id: 1, type: "Male" },
+    { id: 2, type: "Female" },
+  ]);
+
+  useEffect(() => {
+    getCityList(setListCites);
+
+    getDoctorsSpecialtyList(setListSpeciality);
+
+    getListDoctors(setListDoctors);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <FormDoctors
+        listDoctors={listDoctors}
+        listCites={listCites}
+        listSpecialty={listSpecialty}
+        sex={sex}
+      />
     </div>
   );
 }
