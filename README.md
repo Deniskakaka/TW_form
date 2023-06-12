@@ -1,4 +1,4 @@
-<h1>Form with filter/h1>
+<h1>Form with filter</h1>
   
   <h2>Tech steck</h2>
   
