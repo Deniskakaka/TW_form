@@ -189,7 +189,7 @@ export const FormDoctors: React.FC<Props> = ({
       </div>
       <button
         type="submit"
-        className="bg-indigo-700 w-72 h-10 text-white rounded-lg mt-4"
+        className="bg-indigo-700 w-72 h-10 text-white rounded-lg mt-4 mb-5"
       >
         Submit
       </button>

@@ -31,7 +31,7 @@ export const FieldForm: React.FC<Props> = ({
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-72 bg-slate-300 text-white rounded-lg pl-2 pt-2 pb-2 outline-none"
+        className="w-72 rounded-lg border-#dbdedd pl-2 pt-2 pb-2 outline-none"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => change(event)}
         value={value}
       />

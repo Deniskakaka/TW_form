@@ -30,7 +30,7 @@ export const FieldFormSelect: React.FC<Props> = ({
         id={id}
         name={name}
         value={value}
-        className="w-72 bg-slate-300 text-white p-1.5 rounded-lg mt-1.5 pt-2 pb-2 outline-none"
+        className="w-72 border-#dbdedd p-1.5 rounded-lg mt-1.5 pt-2 pb-2 outline-none"
         onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
           change(event)
         }

@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-black w-fit mx-auto mt-16">
       <FormDoctors
         listDoctors={listDoctors}
         listCites={listCites}
