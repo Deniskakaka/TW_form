@@ -1,24 +1,24 @@
 import moment from "moment";
 import { city, doctor, specialty } from "../types/types";
 
-export const getDoctor = (list: doctor[], name: string) => {
+export const getDoctor = (list: doctor[], name: string): doctor => {
   return list.filter(
     (doctor: doctor) => `${doctor.name} ${doctor.surname}` === name
   )[0];
 };
 
-export const getCity = (list: city[], id: number) => {
+export const getCity = (list: city[], id: number): city => {
   return list.filter((city: city) => city.id === id)[0];
 };
 
-export const getSpecialty = (list: specialty[], id: number) => {
+export const getSpecialty = (list: specialty[], id: number): specialty => {
   return list.filter((speciality: specialty) => speciality.id === id)[0];
 };
 
 export const filterSpeciality = (
   gender: string,
   listSpecialty: specialty[]
-) => {
+): specialty[] => {
   return listSpecialty.filter((spec: specialty) => {
     if (spec.params) {
       if (spec.params.gender === gender) {
@@ -40,7 +40,7 @@ export const filterListDoctors = (
   listDoctors: doctor[],
   listSpecialty: specialty[],
   listCity: city[]
-) => {
+): doctor[] => {
   const copy = [...listDoctors];
   const filterSpeciality = filterBySpecialty(speciality, copy, listSpecialty);
   const filterDate = filterByDate(date, filterSpeciality);
@@ -54,7 +54,7 @@ const filterBySpecialty = (
   specialty: string,
   listDoctors: doctor[],
   listSpecialty: specialty[]
-) => {
+): doctor[] => {
   const result = [...listDoctors];
 
   if (specialty === "Select specialty") {
@@ -72,7 +72,7 @@ const filterByCity = (
   city: string,
   listDoctors: doctor[],
   listCity: city[]
-) => {
+): doctor[] => {
   let result = [...listDoctors];
 
   if (city === "Select City") {
@@ -86,7 +86,7 @@ const filterByCity = (
   }
 };
 
-const filterByDate = (date: string, listDoctors: doctor[]) => {
+const filterByDate = (date: string, listDoctors: doctor[]): doctor[] => {
   const today = moment();
   const userDate = moment(date);
   let result = [...listDoctors];
@@ -110,7 +110,7 @@ const filterByGender = (
   gender: string,
   listDoctors: doctor[],
   listSpecialty: specialty[]
-) => {
+): doctor[] => {
   return listDoctors.filter((doc: doctor) => {
     const specDoctor = getSpecialty(listSpecialty, doc.specialityId).params;
     if (specDoctor) {

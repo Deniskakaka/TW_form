@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { city, doctor, gender } from "../../types/types";
 
 type Props = {
@@ -22,7 +23,7 @@ export const FieldFormSelect: React.FC<Props> = ({
   change,
   touched,
   error,
-}) => {
+}): ReactElement => {
   return (
     <div className="mt-2 w-72 flex flex-col ml-4">
       <label htmlFor={htmlFor}>{title}</label>

@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { ReactElement } from "react";
 import {
   filterListDoctors,
   filterSpeciality,
@@ -23,7 +24,7 @@ export const FormDoctors: React.FC<Props> = ({
   listCites,
   listSpecialty,
   sex,
-}) => {
+}): ReactElement => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -42,26 +43,26 @@ export const FormDoctors: React.FC<Props> = ({
     },
   });
 
-  const handleDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDate = (event: React.ChangeEvent<HTMLInputElement>): void => {
     formik.setFieldValue("birthDay", event.target.value);
     formik.setFieldValue("doctor", "Select doctor");
     formik.setFieldValue("city", "Select City");
     formik.setFieldValue("doctorSpecialty", "Select specialty");
   };
 
-  const handleGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleGender = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     formik.setFieldValue("sex", event.target.value);
     formik.setFieldValue("doctor", "Select doctor");
     formik.setFieldValue("city", "Select City");
     formik.setFieldValue("doctorSpecialty", "Select specialty");
   };
 
-  const handleCity = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCity = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     formik.setFieldValue("city", event.target.value);
     formik.setFieldValue("doctor", "Select doctor");
   };
 
-  const handleDoctor = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleDoctor = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     formik.setFieldValue("doctor", event.target.value);
 
     const selectedDoctor = getDoctor(listDoctors, event.target.value);

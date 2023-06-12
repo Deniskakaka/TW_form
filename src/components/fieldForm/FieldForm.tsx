@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 type Props = {
   title: string;
   type: string;
@@ -22,7 +24,7 @@ export const FieldForm: React.FC<Props> = ({
   change,
   touched,
   error,
-}) => {
+}): ReactElement => {
   return (
     <div className="flex flex-col rounded mt-2 w-72 ml-4">
       <label htmlFor={htmlFor}>{title}</label>

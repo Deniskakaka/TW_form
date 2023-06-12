@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import {
   getCityList,
   getDoctorsSpecialtyList,
@@ -7,7 +7,7 @@ import {
 import { FormDoctors } from "./components/form/Form";
 import { city, doctor, gender, specialty } from "./types/types";
 
-function App() {
+function App(): ReactElement {
   const [listCites, setListCites] = useState<city[]>([]);
   const [listSpecialty, setListSpeciality] = useState<specialty[]>([]);
   const [listDoctors, setListDoctors] = useState<doctor[]>([]);
